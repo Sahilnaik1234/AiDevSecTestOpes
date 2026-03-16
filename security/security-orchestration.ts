@@ -1,7 +1,7 @@
 import { installTools } from "./tool-installer.ts";
-import { ScannerManager } from "./scanner-manager";
-import { runComplianceChecks } from "../compilances/compilance-manager";
-import { generateSecurityReport } from "./report-aggregator";
+import { ScannerManager } from "./scanner-manager.ts";
+import { runComplianceChecks } from "../compilances/compilance-manager.ts";
+import { generateSecurityReport } from "./report-aggregator.ts";
 async function runSecurityPipeline() {
 
     installTools();
