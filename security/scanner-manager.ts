@@ -16,7 +16,7 @@ export class ScannerManager {
 
             console.log(`Running ${scannerName} scanner`);
 
-            const scanner = await import(`./scanners/${scannerName}`);
+            const scanner = await import(`./scanners/${scannerName}.ts`);
 
             await scanner.run();
 
