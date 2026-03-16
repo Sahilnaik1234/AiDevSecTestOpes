@@ -1,5 +1,5 @@
-import { runHIPAA } from "./frameworks/hippa.ts";
-import { runSOC2 } from "./frameworks/soc2.ts";
+import { runHIPAA } from "./frameworks/hippa.js";
+import { runSOC2 } from "./frameworks/soc2.js";
 
 export async function runComplianceChecks() {
 

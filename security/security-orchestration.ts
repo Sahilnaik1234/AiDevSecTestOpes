@@ -1,8 +1,8 @@
 import fs from "fs";
-import { installTools } from "./tool-installer.ts";
-import { ScannerManager } from "./scanner-manager.ts";
-import { runComplianceChecks } from "../compilances/compilance-manager.ts";
-import { generateSecurityReport } from "./report-aggregator.ts";
+import { installTools } from "./tool-installer.js";
+import { ScannerManager } from "./scanner-manager.js";
+import { runComplianceChecks } from "../compilances/compilance-manager.js";
+import { generateSecurityReport } from "./report-aggregator.js";
 async function runSecurityPipeline() {
     if (!fs.existsSync("reports")) {
         fs.mkdirSync("reports");

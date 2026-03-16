@@ -19,7 +19,7 @@ export class ScannerManager {
             }
 
             console.log(`Running ${scannerName} scanner`);
-            const scanner = await import(`./scanners/${scannerName}.ts`);
+            const scanner = await import(`./scanners/${scannerName}.js`);
             await scanner.run();
         } catch (error) {
             console.error(`${scannerName} failed`);
