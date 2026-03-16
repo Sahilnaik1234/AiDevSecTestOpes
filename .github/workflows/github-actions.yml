@@ -27,9 +27,8 @@ jobs:
           npm install
           npm install -g ts-node
 
-      - name: Run DevSecOps pipeline
-        run: |
-          ts-node security/security-orchestration.ts
+      - name: Run security orchestration
+        run: npx ts-node --esm security/security-orchestration.ts
 
       - name: Upload Security Reports
         uses: actions/upload-artifact@v4
