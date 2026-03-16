@@ -1,4 +1,4 @@
-import { installTools } from "./tool-installer";
+import { installTools } from "./tool-installer.ts";
 import { ScannerManager } from "./scanner-manager";
 import { runComplianceChecks } from "../compilances/compilance-manager";
 import { generateSecurityReport } from "./report-aggregator";
