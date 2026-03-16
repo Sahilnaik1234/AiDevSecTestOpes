@@ -6,12 +6,9 @@ sast_scanners:
   semgrep:
     install: "pip install semgrep"
 
-  codeql:
-    install: "echo CodeQL handled by GitHub"
-
 dependency_scanners:
   trivy:
-    install: "sudo apt install trivy -y"
+    run: "docker run --rm aquasec/trivy fs ."
 
 compliance_frameworks:
   - hipaa
