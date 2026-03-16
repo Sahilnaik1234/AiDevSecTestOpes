@@ -1,0 +1,33 @@
+name: DevSecOps Security Pipeline
+
+on:
+  push: feature/*
+  pull_request:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Node dependencies
+        run: |
+          npm install
+          npm install -g ts-node
+
+      - name: Run DevSecOps pipeline
+        run: |
+          ts-node security/security-orchestrator.ts
+
+      - name: Upload Security Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: reports/

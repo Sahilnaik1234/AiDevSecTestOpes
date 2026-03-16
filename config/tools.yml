@@ -1,0 +1,18 @@
+secret_scanners:
+  gitleaks:
+    install: "sudo apt install gitleaks -y"
+
+sast_scanners:
+  semgrep:
+    install: "pip install semgrep"
+
+  codeql:
+    install: "echo CodeQL handled by GitHub"
+
+dependency_scanners:
+  trivy:
+    install: "sudo apt install trivy -y"
+
+compliance_frameworks:
+  - hipaa
+  - soc2
