@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 
 export function installTools() {
 
-    const file = fs.readFileSync("config/tools.yaml", "utf8");
+    const file = fs.readFileSync("config/tools.yml", "utf8");
     const config: any = yaml.load(file);
 
     const categories = [

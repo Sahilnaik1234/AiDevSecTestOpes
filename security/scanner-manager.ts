@@ -6,7 +6,7 @@ export class ScannerManager {
     config: any;
 
     constructor() {
-        const file = fs.readFileSync("config/tools.yaml", "utf8");
+        const file = fs.readFileSync("config/tools.yml", "utf8");
         this.config = yaml.load(file);
     }
 
