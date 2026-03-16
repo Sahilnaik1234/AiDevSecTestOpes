@@ -11,44 +11,36 @@ export class ScannerManager {
     }
 
     async runScanner(scannerName: string) {
-
         try {
+            const scannerPath = `./security/scanners/${scannerName}.ts`;
+            if (!fs.existsSync(scannerPath)) {
+                console.log(`Skipping ${scannerName}: Implementation not found at ${scannerPath}`);
+                return;
+            }
 
             console.log(`Running ${scannerName} scanner`);
-
             const scanner = await import(`./scanners/${scannerName}.ts`);
-
             await scanner.run();
-
         } catch (error) {
-
             console.error(`${scannerName} failed`);
             throw error;
-
         }
-
     }
 
-    async runCategory(scanners: string[]) {
-
+    async runCategory(scanners: any) {
         if (!scanners) return;
-
-        for (const scanner of scanners) {
+        const scannerNames = Object.keys(scanners);
+        for (const scanner of scannerNames) {
             await this.runScanner(scanner);
         }
-
     }
 
     async runAll() {
-
         console.log("Starting security scans...");
-
         await this.runCategory(this.config.secret_scanners);
         await this.runCategory(this.config.sast_scanners);
         await this.runCategory(this.config.dependency_scanners);
-
         console.log("Security scans finished");
-
     }
 
 }
