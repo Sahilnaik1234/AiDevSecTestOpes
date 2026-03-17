@@ -38,7 +38,12 @@ export function generateSecurityReport() {
         JSON.stringify(report, null, 2)
     );
 
-    console.log("Security summary generated");
+    // Save for Dashboard UI
+    const dashboardData = `window.VULN_DATA = ${JSON.stringify(report, null, 2)};`;
+    if (!fs.existsSync("dashboard")) fs.mkdirSync("dashboard");
+    fs.writeFileSync("dashboard/data.js", dashboardData);
+
+    console.log("Security summary generated and Dashboard updated");
 
     // ---- DETAILED LOGGING ----
 

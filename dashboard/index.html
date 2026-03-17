@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiDevSecOps | Security Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="animate" style="animation-delay: 0.1s">
+            <div class="header-left">
+                <h1>AiDevSecOps Dashboard</h1>
+                <p id="scan-time" style="color: var(--text-muted); margin-top: 0.5rem;">Loading scan results...</p>
+            </div>
+            <div class="header-right">
+                <span id="overall-status" class="status-badge status-failed">Risk Detected</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="stats-grid">
+                <div class="stat-card animate" style="animation-delay: 0.2s">
+                    <div class="stat-label">Critical Secrets</div>
+                    <div id="stat-secrets" class="stat-value">0</div>
+                </div>
+                <div class="stat-card animate" style="animation-delay: 0.3s">
+                    <div class="stat-label">SAST Findings</div>
+                    <div id="stat-sast" class="stat-value">0</div>
+                </div>
+                <div class="stat-card animate" style="animation-delay: 0.4s">
+                    <div class="stat-label">Vulnerable Deps</div>
+                    <div id="stat-deps" class="stat-value">0</div>
+                </div>
+                <div class="stat-card animate" style="animation-delay: 0.5s">
+                    <div class="stat-label">Compliance Score</div>
+                    <div id="stat-compliance" class="stat-value">--</div>
+                </div>
+            </section>
+
+            <div class="vuln-sections">
+                <!-- Secrets Section -->
+                <article class="card animate" style="animation-delay: 0.6s">
+                    <div class="card-header">
+                        <h2 class="card-title">🛡️ Exposed Secrets</h2>
+                    </div>
+                    <div id="secrets-list" class="vuln-list">
+                        <!-- Items injected by JS -->
+                    </div>
+                </article>
+
+                <!-- SAST Section -->
+                <article class="card animate" style="animation-delay: 0.7s">
+                    <div class="card-header">
+                        <h2 class="card-title">🔍 SAST Analysis</h2>
+                    </div>
+                    <div id="sast-list" class="vuln-list">
+                        <!-- Items injected by JS -->
+                    </div>
+                </article>
+
+                <!-- Dependencies Section -->
+                <article class="card animate" style="animation-delay: 0.8s">
+                    <div class="card-header">
+                        <h2 class="card-title">📦 Dependency Scans</h2>
+                    </div>
+                    <div id="deps-list" class="vuln-list">
+                        <!-- Items injected by JS -->
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
